@@ -1,0 +1,126 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>¿Quieres salir conmigo? 💖</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: radial-gradient(circle, #ffe6f0 0%, #fff 100%);
+      font-family: 'Segoe UI', sans-serif;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 600px;
+      padding: 40px;
+      background: #fff;
+      box-shadow: 0 0 20px rgba(255, 105, 180, 0.2);
+      border-radius: 20px;
+      text-align: center;
+      animation: fadeIn 1s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    h1 {
+      font-size: 2.5em;
+      color: #e91e63;
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 1.3em;
+      margin-bottom: 30px;
+    }
+    .heart {
+      font-size: 3.5em;
+      color: #ff4081;
+      animation: heartbeat 1.5s infinite;
+    }
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.3); }
+    }
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 20px;
+    }
+    button {
+      padding: 15px 25px;
+      font-size: 1.1em;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .yes-btn {
+      background-color: #e91e63;
+      color: white;
+    }
+    .yes-btn:hover {
+      background-color: #d81b60;
+    }
+    .no-btn {
+      background-color: #f1f1f1;
+      color: #e91e63;
+      border: 2px solid #e91e63;
+    }
+    .no-btn:hover {
+      background-color: #ffe6ec;
+    }
+    #respuesta {
+      margin-top: 30px;
+      font-size: 1.4em;
+      color: #4caf50;
+      display: none;
+    }
+    #respuesta.no {
+      color: #f44336;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="heart">💖</div>
+    <h1>Nika como mi crush</h1>
+    <p>
+      Bueno me atreví a decirte esto antes que te lo diga alguien más…<br>
+      Eres una persona increíble, y cada vez que estoy contigo puedo ser yo, haces que sea un mejor varón.<br><br>
+      Quisiera saber… <strong>¿Si te gustaría ser mi crush? 💕</strong>
+    </p>
+    <form action="https://formsubmit.co/reyesfran640@gmail.com" method="POST">
+      <input type="hidden" name="_captcha" value="false">
+      <div class="buttons">
+        <button class="yes-btn" type="submit" name="respuesta" value="Sí">Sí 🥰</button>
+        <button class="no-btn" type="submit" name="respuesta" value="No">No 😢</button>
+      </div>
+    </form>
+    <div id="respuesta"></div>
+  </div>
+
+  <script>
+    const botones = document.querySelectorAll("button");
+    botones.forEach(boton => {
+      boton.addEventListener("click", (e) => {
+        const respuesta = document.getElementById("respuesta");
+        respuesta.style.display = "block";
+        if (boton.value === "Sí") {
+          respuesta.classList.remove("no");
+          respuesta.textContent = "¡No me esperaba esa respuesta! ❤️ 😊";
+        } else {
+          respuesta.classList.add("no");
+          respuesta.textContent = "Esperaba esa respuesta pero no creas que me daré por vencido 💐";
+        }
+      });
+    });
+  </script>
+</body>
+</html>
